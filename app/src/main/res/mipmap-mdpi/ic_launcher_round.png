@@ -1,0 +1,73 @@
+package com.kukoa.psicoguia.databinding;
+
+import android.databinding.Bindable;
+import android.databinding.DataBindingComponent;
+import android.databinding.DataBindingUtil;
+import android.databinding.ViewDataBinding;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.kukoa.psicoguia.view.NotificationViewModel;
+
+public abstract class ActivityNotificationBinding extends ViewDataBinding {
+  @NonNull
+  public final View bottomNavigationBar;
+
+  @NonNull
+  public final RecyclerView notificationRecyclerView;
+
+  @NonNull
+  public final View toolbar;
+
+  @Bindable
+  protected NotificationViewModel mViewModel;
+
+  protected ActivityNotificationBinding(DataBindingComponent _bindingComponent, View _root,
+      int _localFieldCount, View bottomNavigationBar, RecyclerView notificationRecyclerView,
+      View toolbar) {
+    super(_bindingComponent, _root, _localFieldCount);
+    this.bottomNavigationBar = bottomNavigationBar;
+    this.notificationRecyclerView = notificationRecyclerView;
+    this.toolbar = toolbar;
+  }
+
+  public abstract void setViewModel(@Nullable NotificationViewModel viewModel);
+
+  @Nullable
+  public NotificationViewModel getViewModel() {
+    return mViewModel;
+  }
+
+  @NonNull
+  public static ActivityNotificationBinding inflate(@NonNull LayoutInflater inflater,
+      @Nullable ViewGroup root, boolean attachToRoot) {
+    return inflate(inflater, root, attachToRoot, DataBindingUtil.getDefaultComponent());
+  }
+
+  @NonNull
+  public static ActivityNotificationBinding inflate(@NonNull LayoutInflater inflater,
+      @Nullable ViewGroup root, boolean attachToRoot, @Nullable DataBindingComponent component) {
+    return DataBindingUtil.<ActivityNotificationBinding>inflate(inflater, com.kukoa.psicoguia.R.layout.activity_notification, root, attachToRoot, component);
+  }
+
+  @NonNull
+  public static ActivityNotificationBinding inflate(@NonNull LayoutInflater inflater) {
+    return inflate(inflater, DataBindingUtil.getDefaultComponent());
+  }
+
+  @NonNull
+  public static ActivityNotificationBinding inflate(@NonNull LayoutInflater inflater,
+      @Nullable DataBindingComponent component) {
+    return DataBindingUtil.<ActivityNotificationBinding>inflate(inflater, com.kukoa.psicoguia.R.layout.activity_notification, null, false, component);
+  }
+
+  public static ActivityNotificationBinding bind(@NonNull View view) {
+    return bind(view, DataBindingUtil.getDefaultComponent());
+  }
+
+  public static ActivityNotificationBinding bind(@NonNull View view,
+      @Nullable DataBindingComponent component) {
+    return (ActivityNotificationBinding)bind(component, view, com.kukoa.p
