@@ -3,6 +3,7 @@ package com.hemmersbach.android.ViewModel
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MediatorLiveData
 import android.arch.lifecycle.ViewModel
+import android.util.Log
 import com.hemmersbach.android.Jokes
 
 import com.hemmersbach.android.JokesRepository.JokesRepository
@@ -32,6 +33,10 @@ class RemoteViewModel(private val repository: JokesRepository) : ViewModel() {
                 is Result.Failure -> _error.postValue(jokesRespond.exception.message)
             }
         }
+    }
+
+    init {
+        Log.i("AppfRemoteViewModel", this.toString())
     }
 
     fun addJoke(value: Jokes) = scope.launch { repository.addJoke(value) }

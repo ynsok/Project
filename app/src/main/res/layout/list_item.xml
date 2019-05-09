@@ -42,6 +42,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/category"
                 tools:text="fgfkijfgjgfgfkijfgjgfgfkijfgjgfgfkijfgjgfgfkijfgjgfgfkijfgjgfgfkijfgjgfgfkijfgjgfgfkijfgjgfgfkijfgjgfgfkijfgjgfgfkijfgjgfgfkijfgjgfgfkijfgjgfgfkijfgjgfgfkijfgjgfgfkijfgjgfgfkijfgjgfgfkijfgjgfgfkijfgjgfgfkijfgjgfgfkijfgjgfgfkijfgjgfgfkijfgjgfgfkijfgjgfgfkijfgjgfgfkijfgjgfgfkijfgjgfgfkijfgjgfgfkijfgjgfgfkijfgjgfgfkijfgjgfgfkijfgjgfgfkijfgjgfgfkijfgjgfgfkijfgjgfgfkijfgjgfgfkijfgjgfgfkijfgjgfgfkijfgjgfgfkijfgjg" />
 
+
             <RatingBar
                 android:id="@+id/ratingBar"
                 style="@android:style/Widget.DeviceDefault.RatingBar"
@@ -58,6 +59,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/joke" />
 
+
             <ImageView
                 android:id="@+id/addButton"
                 android:layout_width="50dp"
@@ -72,19 +74,21 @@
                 app:layout_constraintTop_toTopOf="@+id/ratingBar"
                 app:setIcon="@{image}" />
 
+
             <TextView
                 android:id="@+id/category"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
+                android:text="@{jokeModel.categories}"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:text="@{jokeModel.categories}"
                 tools:text="Category" />
+
 
         </android.support.constraint.ConstraintLayout>
     </android.support.v7.widget.CardView>

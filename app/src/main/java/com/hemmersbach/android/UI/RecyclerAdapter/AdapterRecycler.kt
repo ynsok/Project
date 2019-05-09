@@ -25,7 +25,7 @@ class RemoteRecycler(private val typeIcon: TypeIcon) :
     override fun onCreateViewHolder(
         viewGroup: ViewGroup,
         viewType: Int
-    ): RemoteRecycler.ViewHolder {
+    ): ViewHolder {
         val view: ListItemBinding = DataBindingUtil.inflate(
             viewGroup.inflate(),
             R.layout.list_item,
@@ -81,7 +81,6 @@ class RemoteRecycler(private val typeIcon: TypeIcon) :
     ) :
         RecyclerView.ViewHolder(view.root) {
         fun bindView(joke: Jokes) {
-
             view.setVariable(BR.jokeModel, joke)
             view.setVariable(BR.image, drawable)
             view.executePendingBindings()

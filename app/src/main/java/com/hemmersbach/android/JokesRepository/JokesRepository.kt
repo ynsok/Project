@@ -1,5 +1,6 @@
 package com.hemmersbach.android.JokesRepository
 
+import android.util.Log
 import com.hemmersbach.android.Convert.ConvertDataType
 import com.hemmersbach.android.Database.JokesDao
 import com.hemmersbach.android.Extention.ApiCall
@@ -9,8 +10,13 @@ import com.hemmersbach.android.Result.Result
 import com.hemmersbach.android.SharedPreferences.SharedPreferences
 import com.hemmersbach.android.Util.ConnectionManager
 import java.io.IOException
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class JokesRepository(
+@Singleton
+class JokesRepository
+@Inject
+constructor(
     private val jokesApiService: JokesApiService,
     private val connectionManager: ConnectionManager,
     private val sharedPreferences: SharedPreferences,
@@ -35,4 +41,8 @@ class JokesRepository(
     fun getAllJokes() = jokesDao.getAllJokesAscByRating()
     fun addJoke(Jokes: Jokes) = jokesDao.addJoke(Jokes)
     fun removeFromDatabase(jokes: Jokes) = jokesDao.removeJoke(jokes)
+
+    init {
+        Log.i("AppfRepository", this.toString())
+    }
 }
